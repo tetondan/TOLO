@@ -228,14 +228,17 @@ export default class Matches extends Component {
       )
     } else if ( this.props.profile.gender === 'female' && this.state.requestList.length === 0){
       return (
-        <View style={styles.container}>
-          <Text style={styles.noMatchText}>
-            This is where your pending requests go! Go out there and find someone!
-          </Text>
-        </View>
+          <View style={styles.container}>
+            <Text style={styles.noMatchText}>
+              This is where your pending requests go! Go out there and find someone!
+            </Text>
+          </View>
       )
     } else {
-      return (<View style={styles.container}>{this.requests()}</View>)
+      return (
+        <ScrollView contentContainerStyle={styles.container}>
+            {this.requests()}
+        </ScrollView>)
     }
   }
 
